@@ -1,0 +1,35 @@
+#Starting FROM
+FROM ubuntu:latest
+
+#Taking ARGs
+ARG STEAM_APP_ID="tbd"
+ARG STEAMCMD_PUBLIC_ID="anonymous"
+ARG STEAMCMD_INSTALL_PLATFORM="linux"
+
+#Define ENVs (hypotheticals)
+#ENV ENSHROUDED_GAMEMODE="mygamemode"
+#ENV ENSHROUDED_DIFFICULTY="mydifficulty"
+#ENV ENSHROUDED_LEVEL_NAME="mymapname"
+#ENV ENSHROUDED_SERVER_MOTD="mymotd"
+#ENV ENSHROUDED_RCON_PASSWORD="mypassword"
+
+#Execute Base installations instructions
+RUN apt update && apt install -y \
+vim curl steamcmd\
+&& apt autoclean
+
+#Create Steam local user
+
+RUN useradd -m steam
+
+
+#Add the startupscript and set execution mode
+ADD startupscript.sh /Enshrouded/startupscript.sh
+RUN chmod +x /Enshrouded/startupscript.sh
+
+#Expose ports
+#EXPOSE tbd
+
+#Use entrypoint or CMD
+ENTRYPOINT [ "/Enshrouded/startupscript.sh" ]
+#CMD [ "executable" ]
