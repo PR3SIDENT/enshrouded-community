@@ -2,6 +2,7 @@
 FROM ubuntu:latest
 
 #Taking ARGs
+ARG DEBIAN_FRONTEND=noninteractive
 ARG STEAM_APP_ID="2278520"
 ARG STEAMCMD_PUBLIC_ID="anonymous"
 ARG STEAMCMD_INSTALL_PLATFORM="linux"
@@ -15,15 +16,22 @@ ARG STEAMCMD_INSTALL_PLATFORM="linux"
 
 #Execute Base installations instructions
 RUN apt update && apt install -y \
-vim curl steamcmd\
+vim wget screen lib32gcc-s1 \
 && apt autoclean
 
+#Add repo for steamcmd and install
+RUN add-apt-repository -y multiverse && \
+dpkg --add-architecture i386 && \
+apt update && \
+apt install -y steamcmd
+
 #Create Steam local user
-RUN useradd -m steam && \
-ln -s /usr/games/steamcmd steamcmd
+RUN useradd -m steam
 WORKDIR /home/steam
 
-RUN ./steamcmd +@sSteamCmdForcePlatformType linux +login ${STEAMCMD_PUBLIC_ID} +force_install_dir /home/steam/enshrouded +app_update ${STEAM_APP_ID} +quit
+#Make symlink & install enshrouded dedicated server
+RUN ln -s /usr/games/steamcmd steamcmd && \
+./steamcmd +@sSteamCmdForcePlatformType linux +force_install_dir /home/steam/enshrouded +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit
 
 #Add the startupscript and set execution mode
 ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
