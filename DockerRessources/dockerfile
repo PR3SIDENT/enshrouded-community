@@ -23,7 +23,7 @@ RUN useradd -m steam && \
 ln -s /usr/games/steamcmd steamcmd
 WORKDIR /home/steam
 
-./steamcmd +@sSteamCmdForcePlatformType linux +login ${STEAMCMD_PUBLIC_ID} +force_install_dir /home/steam/enshrouded +app_update ${STEAM_APP_ID} +quit
+RUN ./steamcmd +@sSteamCmdForcePlatformType linux +login ${STEAMCMD_PUBLIC_ID} +force_install_dir /home/steam/enshrouded +app_update ${STEAM_APP_ID} +quit
 
 #Add the startupscript and set execution mode
 ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
