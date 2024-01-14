@@ -1,12 +1,11 @@
 #Starting FROM
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 #Taking ARGs
-ARG DEBIAN_FRONTEND=noninteractive
 #ARG STEAMCMD_INSTALL_PLATFORM="linux"
 ARG STEAMCMD_INSTALL_PLATFORM="windows"
-ARG STEAM_APP_ID="2278520"
 ARG STEAMCMD_PUBLIC_ID="anonymous"
+ARG STEAM_APP_ID="2278520"
 
 #Define ENVs (hypotheticals)
 #ENV ENSHROUDED_GAMEMODE="mygamemode"
@@ -16,22 +15,22 @@ ARG STEAMCMD_PUBLIC_ID="anonymous"
 #ENV ENSHROUDED_RCON_PASSWORD="mypassword"
 
 #Execute Base installations instructions
-RUN apt update && apt install -y \
-vim wget \
+ARG DEBIAN_FRONTEND=noninteractive
+RUN dpkg --add-architecture i386 && \
+apt update && \
+apt install -y vim lib32z1 lib32gcc-s1\
 && apt autoclean
 
-#Add repo for steamcmd and install
-RUN add-apt-repository -y multiverse && \
-dpkg --add-architecture i386 && \
-apt update && \
-apt install -y wine32 screen lib32gcc-s1 steamcmd
-
-#Create Steam local user
-RUN useradd -m steam
-WORKDIR /home/steam
+#Install/update steamCMD
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN echo steam steam/question select "I AGREE" | debconf-set-selections && \
+echo steam steam/license note '' | debconf-set-selections
+RUN apt install -y steamcmd && \
+steamcmd +quit
 
 #Make symlink & install enshrouded dedicated server
-RUN ln -s /usr/games/steamcmd steamcmd && \
+WORKDIR /usr/games
+RUN ln -s /usr/games/steamcmd /usr/bin/steamcmd && \
 ./steamcmd +@sSteamCmdForcePlatformType ${STEAMCMD_INSTALL_PLATFORM} +force_install_dir /home/steam/enshrouded +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit
 
 #Add the startupscript and set execution mode
