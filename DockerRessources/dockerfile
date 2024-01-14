@@ -1,37 +1,46 @@
 #Starting FROM
 FROM ubuntu:22.04
 
-#Taking ARGs
-#ARG STEAMCMD_INSTALL_PLATFORM="linux"
+#Taking ARGs4
+ARG STEAMCMD_INSTALL_DIR="/home/steam/steamcmd"
 ARG STEAMCMD_INSTALL_PLATFORM="windows"
 ARG STEAMCMD_PUBLIC_ID="anonymous"
 ARG STEAM_APP_ID="2278520"
 
-#Define ENVs (hypotheticals)
+#Define General ENV variable
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+#Define specifics env variables (tbd)
+ENV ENSHROUDED_SERVER_NAME="mymapname"
+ENV ENSHROUDED_SERVER_PASSWORD="mypassword"
 #ENV ENSHROUDED_GAMEMODE="mygamemode"
 #ENV ENSHROUDED_DIFFICULTY="mydifficulty"
-#ENV ENSHROUDED_LEVEL_NAME="mymapname"
 #ENV ENSHROUDED_SERVER_MOTD="mymotd"
 #ENV ENSHROUDED_RCON_PASSWORD="mypassword"
 
 #Execute Base installations instructions
-ARG DEBIAN_FRONTEND=noninteractive
-RUN dpkg --add-architecture i386 && \
-apt update && \
-apt install -y vim lib32z1 lib32gcc-s1\
+RUN apt update && \
+apt install -y vim curl \
 && apt autoclean
 
 #Install/update steamCMD
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN echo steam steam/question select "I AGREE" | debconf-set-selections && \
+ARG DEBIAN_FRONTEND=noninteractive
+SHELL ["/bin/bash","-c", "set -o pipefail"]
+RUN dpkg --add-architecture i386 && \
+echo steam steam/question select "I AGREE" | debconf-set-selections && \
 echo steam steam/license note '' | debconf-set-selections
-RUN apt install -y steamcmd && \
+RUN apt install -y lib32z1 lib32gcc-s1 steamcmd && \
 steamcmd +quit
+
+#Install wine
+
+
 
 #Make symlink & install enshrouded dedicated server
 WORKDIR /usr/games
 RUN ln -s /usr/games/steamcmd /usr/bin/steamcmd && \
-./steamcmd +@sSteamCmdForcePlatformType ${STEAMCMD_INSTALL_PLATFORM} +force_install_dir /home/steam/enshrouded +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit
+./steamcmd +@sSteamCmdForcePlatformType ${STEAMCMD_INSTALL_PLATFORM} +force_install_dir ${STEAMCMD_INSTALL_DIR} +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit
 
 #Add the startupscript and set execution mode
 ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
