@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 #Taking ARGs
-ARG STEAM_APP_ID="tbd"
+ARG STEAM_APP_ID="2278520"
 ARG STEAMCMD_PUBLIC_ID="anonymous"
 ARG STEAMCMD_INSTALL_PLATFORM="linux"
 
@@ -19,13 +19,15 @@ vim curl steamcmd\
 && apt autoclean
 
 #Create Steam local user
+RUN useradd -m steam && \
+ln -s /usr/games/steamcmd steamcmd
+WORKDIR /home/steam
 
-RUN useradd -m steam
-
+./steamcmd +@sSteamCmdForcePlatformType linux +login ${STEAMCMD_PUBLIC_ID} +force_install_dir /home/steam/enshrouded +app_update ${STEAM_APP_ID} +quit
 
 #Add the startupscript and set execution mode
-ADD startupscript.sh /Enshrouded/startupscript.sh
-RUN chmod +x /Enshrouded/startupscript.sh
+ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
+RUN chmod +x /home/steam/enshrouded/startupscript.sh
 
 #Expose ports
 #EXPOSE tbd
