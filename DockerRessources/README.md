@@ -5,7 +5,7 @@ Here you will find some files<br>
     2 - Startup script.sh is image embended file that will be used to initialize container and launch/update service<br>
     3 - both yaml files are to be used with COMPOSE to create stack.<br>
 <br>
-NOTE : you can use ONE of the file. As the standalone is made for simple docker install and the swarm is used... well, fo swarm ;)<br>
+NOTE : you can use ONE of the file. As the standalone is made for simple docker install and the swarm is used... well, for swarm ;)<br>
 <br>
 # Status
 
