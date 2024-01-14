@@ -1,4 +1,4 @@
-# Pterodactye Egg Experience
+# Pterodactyl Egg Experience
 
 The Egg found here is an experimental egg. It was what was used for Closed Beta testing, but is not perfect. 
 
