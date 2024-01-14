@@ -18,6 +18,6 @@ So you can pull it and use one of the yaml file with compose to initialise stack
 
 # FAQ
 
-Q: why a network is declared in compose if you still bind the ports ?
+Q: why a network is declared in compose if you still bind the ports ?<br>
 A: Beceause if we want to make a compose file including other services like Console, Backup management or web interface to manage service,
 it will be more easier (and secure) to add other container in a backend isolated network.
