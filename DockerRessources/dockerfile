@@ -31,7 +31,7 @@ WORKDIR /home/steam
 
 #Make symlink & install enshrouded dedicated server
 RUN ln -s /usr/games/steamcmd steamcmd && \
-./steamcmd +@sSteamCmdForcePlatformType linux +force_install_dir /home/steam/enshrouded +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit
+./steamcmd +@sSteamCmdForcePlatformType ${STEAMCMD_INSTALL_PLATFORM} +force_install_dir /home/steam/enshrouded +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit
 
 #Add the startupscript and set execution mode
 ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
