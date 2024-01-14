@@ -1,6 +1,6 @@
 # Quick Description
 
-Here you will find some files :
+Here you will find some files\n
     1 - Dockerfile is raw file used to generate docker image
     2 - Startup script.sh is image embended file that will be used to initialize container and launch/update service
     3 - both yaml files are to be used with COMPOSE to create stack.
