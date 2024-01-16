@@ -2,42 +2,45 @@
 FROM ubuntu:22.04
 
 #Taking install ARGs
-ARG STEAMCMD_INSTALL_DIR="/home/steam/steamcmd"
 ARG STEAMCMD_INSTALL_PLATFORM="windows"
 ARG STEAMCMD_PUBLIC_ID="anonymous"
-ARG STEAM_APP_ID="2278520"
-
-#Define General ENV variable
+ARG STEAM_APP_ID="tdb"
 
 #Define specifics env variables (tbd)
-ENV ENSHROUDED_INSTALL_DIR="/home/steam/enshrouded"
-ENV ENSHROUDED_SERVER_NAME="myservername"
-ENV ENSHROUDED_SERVER_PASSWORD="mypassword"
+ENV ENSHROUDED_SERVER_NAME="myenshroudedserver"
+ENV ENSHROUDED_SERVER_PASSWORD=""
+ENV ENSHROUDED_SERVER_SAVEDIRECTORY="./savegame"
+ENV ENSHROUDED_SERVER_LOGDIRECTORY="./logs"
+ENV ENSHROUDED_SERVER_MAXPLAYERS="16"
 
-#Execute Base installations instructions
-RUN apt update && \
-apt install -y vim curl
+#Install base packages
+RUN set -x && \
+apt update && \
+apt install -y vim wget software-properties-common
 
 #Install steamCMD with prerequisites
 ARG DEBIAN_FRONTEND=noninteractive
-SHELL ["/bin/bash","-c", "set -o pipefail"]
-RUN dpkg --add-architecture i386 && \
-apt install -y lib32z1 lib32gcc-s1 lib32stdc++6 && \
-groupadd steam && \
-useradd
+RUN add-apt-repository -y multiverse && \
+apt update && \
+dpkg --add-architecture i386 && \
+echo steam steam/question select "I AGREE" | debconf-set-selections && echo steam steam/license note '' | debconf-set-selections && \
+apt install -y lib32z1 lib32gcc-s1 lib32stdc++6 steamcmd && \
+groupadd steam && useradd -m steam -g steam && \
+chmod -R steam:steam /usr/games && \
+su steam -c "mkdir -p /home/steam/enshrouded"
 
-
- steamcmd && \
-steamcmd +quit
-
-#Install wine
-
-
+#Install wine and prerequisites
+RUN dpkg --add-architecture amd64 && \
+mkdir -pm755 /etc/apt/keyrings && \
+wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key && \
+wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources && \
+apt update && \
+apt install --install-recommends winehq-stable
 
 #Make symlink & install enshrouded dedicated server
-WORKDIR /usr/games
-RUN ln -s /usr/games/steamcmd /usr/bin/steamcmd && \
-./steamcmd +@sSteamCmdForcePlatformType ${STEAMCMD_INSTALL_PLATFORM} +force_install_dir ${STEAMCMD_INSTALL_DIR} +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit
+WORKDIR /home/steam
+RUN su steam -c "ln -s /usr/games/steamcmd /usr/bin/steamcmd && \
+./steamcmd +@sSteamCmdForcePlatformType ${STEAMCMD_INSTALL_PLATFORM} +force_install_dir /home/steam/enshrouded +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit"
 
 #Add the startupscript and set execution mode
 ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
@@ -47,5 +50,5 @@ RUN chmod +x /home/steam/enshrouded/startupscript.sh
 EXPOSE 15636/tcp 15637/tcp
 
 #Use entrypoint or CMD
-ENTRYPOINT [ "/Enshrouded/startupscript.sh" ]
+ENTRYPOINT [ "/startupscript.sh" ]
 #CMD [ "executable" ]
