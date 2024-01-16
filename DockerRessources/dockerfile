@@ -6,6 +6,11 @@ ARG STEAMCMD_INSTALL_PLATFORM="windows"
 ARG STEAMCMD_PUBLIC_ID="anonymous"
 ARG STEAM_APP_ID="tdb"
 
+#Define Wine ENV
+ENV WINETRICKS_RUN="vcrun2022"
+ENV WINEDEBUG="-all"
+ENV WINEARCH="win64"
+
 #Define specifics env variables (tbd)
 ENV ENSHROUDED_SERVER_NAME="myenshroudedserver"
 ENV ENSHROUDED_SERVER_PASSWORD=""
