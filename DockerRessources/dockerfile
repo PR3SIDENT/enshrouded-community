@@ -1,36 +1,33 @@
 #Starting FROM
 FROM ubuntu:22.04
 
-#Taking ARGs4
+#Taking install ARGs
 ARG STEAMCMD_INSTALL_DIR="/home/steam/steamcmd"
 ARG STEAMCMD_INSTALL_PLATFORM="windows"
 ARG STEAMCMD_PUBLIC_ID="anonymous"
 ARG STEAM_APP_ID="2278520"
 
 #Define General ENV variable
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+
 #Define specifics env variables (tbd)
-ENV ENSHROUDED_SERVER_NAME="mymapname"
+ENV ENSHROUDED_INSTALL_DIR="/home/steam/enshrouded"
+ENV ENSHROUDED_SERVER_NAME="myservername"
 ENV ENSHROUDED_SERVER_PASSWORD="mypassword"
-#ENV ENSHROUDED_GAMEMODE="mygamemode"
-#ENV ENSHROUDED_DIFFICULTY="mydifficulty"
-#ENV ENSHROUDED_SERVER_MOTD="mymotd"
-#ENV ENSHROUDED_RCON_PASSWORD="mypassword"
 
 #Execute Base installations instructions
 RUN apt update && \
-apt install -y vim curl \
-&& apt autoclean
+apt install -y vim curl
 
-#Install/update steamCMD
+#Install steamCMD with prerequisites
 ARG DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash","-c", "set -o pipefail"]
 RUN dpkg --add-architecture i386 && \
-echo steam steam/question select "I AGREE" | debconf-set-selections && \
-echo steam steam/license note '' | debconf-set-selections
-RUN apt install -y lib32z1 lib32gcc-s1 steamcmd && \
+apt install -y lib32z1 lib32gcc-s1 lib32stdc++6 && \
+groupadd steam && \
+useradd
+
+
+ steamcmd && \
 steamcmd +quit
 
 #Install wine
@@ -47,7 +44,7 @@ ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
 RUN chmod +x /home/steam/enshrouded/startupscript.sh
 
 #Expose ports
-#EXPOSE tbd
+EXPOSE 15636/tcp 15637/tcp
 
 #Use entrypoint or CMD
 ENTRYPOINT [ "/Enshrouded/startupscript.sh" ]
