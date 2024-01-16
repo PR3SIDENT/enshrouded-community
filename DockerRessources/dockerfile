@@ -1,10 +1,13 @@
 #Starting FROM
 FROM ubuntu:22.04
+LABEL maintainer="ChevalierPinard"
 
 #Taking install ARGs
-ARG STEAMCMD_INSTALL_PLATFORM="windows"
-ARG STEAMCMD_PUBLIC_ID="anonymous"
-ARG STEAM_APP_ID="tdb"
+
+#Define SteamCMD ENV
+ENV STEAMCMD_INSTALL_PLATFORM="windows"
+ENV STEAMCMD_PUBLIC_ID="anonymous"
+ENV STEAM_APP_ID="2278520"
 
 #Define Wine ENV
 ENV WINETRICKS_RUN="vcrun2022"
@@ -26,12 +29,12 @@ apt install -y vim wget software-properties-common
 #Install steamCMD with prerequisites
 ARG DEBIAN_FRONTEND=noninteractive
 RUN add-apt-repository -y multiverse && \
-apt update && \
 dpkg --add-architecture i386 && \
+apt update && \
 echo steam steam/question select "I AGREE" | debconf-set-selections && echo steam steam/license note '' | debconf-set-selections && \
 apt install -y lib32z1 lib32gcc-s1 lib32stdc++6 steamcmd && \
 groupadd steam && useradd -m steam -g steam && \
-chmod -R steam:steam /usr/games && \
+chown -R steam:steam /usr/games && \
 su steam -c "mkdir -p /home/steam/enshrouded"
 
 #Install wine and prerequisites
@@ -44,16 +47,19 @@ apt install --install-recommends winehq-stable
 
 #Make symlink & install enshrouded dedicated server
 WORKDIR /home/steam
-RUN su steam -c "ln -s /usr/games/steamcmd /usr/bin/steamcmd && \
+RUN su steam -c "ln -s /usr/games/steamcmd /home/steam/steamcmd && \
 ./steamcmd +@sSteamCmdForcePlatformType ${STEAMCMD_INSTALL_PLATFORM} +force_install_dir /home/steam/enshrouded +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit"
 
 #Add the startupscript and set execution mode
 ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
 RUN chmod +x /home/steam/enshrouded/startupscript.sh
 
+#Map volume
+VOLUME /home/steam/enshrouded
+
 #Expose ports
 EXPOSE 15636/tcp 15637/tcp
 
 #Use entrypoint or CMD
-ENTRYPOINT [ "/startupscript.sh" ]
+ENTRYPOINT [ "/home/steam/enshrouded/startupscript.sh" ]
 #CMD [ "executable" ]

@@ -7,14 +7,21 @@ Here you will find some files<br>
 <br>
 NOTE : you can use ONE of the file. As the standalone is made for simple docker install and the swarm is used... well, for swarm ;)<br>
 <br>
+
 # Status
 
-WARNING : Due to lack of informations for now, this is still under construction.
+For now, all files are under DEV and not usable 'as is'.<br>
+It will be upgraded since release.<br>
 
 # How to use
 
-Image will probably be available here and also in dockerhub.
-So you can pull it and use one of the yaml file with compose to initialise stack
+Those are the variable you can custom with their defaults values.<br>
+<br>
+ENSHROUDED_SERVER_NAME="myenshroudedserver"<br>
+ENSHROUDED_SERVER_PASSWORD=""<br>
+ENSHROUDED_SERVER_SAVEDIRECTORY="./savegame"<br>
+ENSHROUDED_SERVER_LOGDIRECTORY="./logs"<br>
+ENSHROUDED_SERVER_MAXPLAYERS="16"<br>
 
 # FAQ
 
