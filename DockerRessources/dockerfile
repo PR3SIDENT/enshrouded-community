@@ -56,7 +56,7 @@ ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
 RUN chmod +x /home/steam/enshrouded/startupscript.sh
 
 #Map volume
-VOLUME /home/steam/enshrouded
+VOLUME /home/steam/enshrouded/savegame /home/steam/enshrouded/savegame
 
 #Expose ports
 EXPOSE 15636/udp 15637/udp
