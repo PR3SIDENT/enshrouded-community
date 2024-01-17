@@ -52,8 +52,8 @@ RUN su steam -c "ln -s /usr/games/steamcmd /home/steam/steamcmd && \
 ./steamcmd +@sSteamCmdForcePlatformType ${STEAMCMD_INSTALL_PLATFORM} +force_install_dir /home/steam/enshrouded +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit"
 
 #Add the startupscript and set execution mode
-ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
-RUN chmod +x /home/steam/enshrouded/startupscript.sh
+ADD startupscript.sh /home/steam/startupscript.sh
+RUN chmod +x /home/steam/startupscript.sh
 
 #Map volume
 VOLUME /home/steam/enshrouded/savegame /home/steam/enshrouded/savegame
@@ -62,5 +62,5 @@ VOLUME /home/steam/enshrouded/savegame /home/steam/enshrouded/savegame
 EXPOSE 15636/udp 15637/udp
 
 #Use entrypoint or CMD
-ENTRYPOINT [ "/home/steam/enshrouded/startupscript.sh" ]
+ENTRYPOINT [ "/home/steam/startupscript.sh" ]
 #CMD [ "executable" ]
