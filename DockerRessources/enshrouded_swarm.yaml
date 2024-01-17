@@ -14,7 +14,8 @@ services:
       - "15637:15667/udp"
       - "tbd:tbd"
     volumes:
-      - "serverdata:/home/steam/enshrouded"
+      - "enshrouded_data:/home/steam/enshrouded/savegame"
+      - "enshrouded_logs:/home/steam/enshrouded/logs"
     networks:
       - "backendnetwork"
     Environment:
@@ -25,7 +26,8 @@ services:
       - "ENSHROUDED_SERVER_MAXPLAYERS=16"
 
 volumes:
-  serverdata:
+  enshrouded_data:
+  enshrouded_logs:
 
 networks:
   backendnetwork:

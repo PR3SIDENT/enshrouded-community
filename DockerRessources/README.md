@@ -9,9 +9,23 @@ docker compose --compose-file enshrouded_swarm.yaml EnshroudedDedi
 
 Method with compose (standalone):<br>
 ```bash
-wget https://github.com/PR3SIDENT/enshrouded-server/blob/main/DockerRessources/enshrouded_swarm.yaml
+wget https://github.com/PR3SIDENT/enshrouded-server/blob/main/DockerRessources/enshrouded_standalone.yaml
 docker compose --compose-file enshrouded_swarm.yaml EnshroudedDedi
 ```
+<br>
+
+Method with docker run : ToBeDone<br>
+```bash
+docker run -d --name enshroudeddedi --restart=always -p 15636:15636 -p 15637:15667 \
+-v enshrouded_data:/home/steam/enshrouded/savegame -v enshrouded_logs:/home/steam/enshrouded/logs \
+-e ENSHROUDED_SERVER_NAME=myenshroudedserver \
+-e ENSHROUDED_SERVER_PASSWORD=<insertpasswordhere> \
+-e ENSHROUDED_SERVER_SAVEDIRECTORY=./savegame \
+-e ENSHROUDED_SERVER_LOGDIRECTORY=./logs \
+-e ENSHROUDED_SERVER_MAXPLAYERS=16
+```
+<br>
+
 # Quick Description
 
 Here you will find some files<br>
