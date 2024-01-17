@@ -10,7 +10,7 @@ ENV STEAMCMD_PUBLIC_ID="anonymous"
 ENV STEAM_APP_ID="2278520"
 
 #Define Wine ENV
-ENV WINETRICKS_RUN="vcrun2022"
+#ENV WINETRICKS_RUN="vcrun2022"
 ENV WINEDEBUG="-all"
 ENV WINEARCH="win64"
 
@@ -43,7 +43,8 @@ mkdir -pm755 /etc/apt/keyrings && \
 wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key && \
 wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources && \
 apt update && \
-apt install --install-recommends winehq-stable
+apt install --install-recommends winehq-stable && \
+apt install -y --allow-unauthenticated screen xvfb
 
 #Make symlink & install enshrouded dedicated server
 WORKDIR /home/steam
