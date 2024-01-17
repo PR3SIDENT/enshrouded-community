@@ -1,3 +1,17 @@
+# Deploy the container
+
+Method with compose  (swarm):<br>
+```bash
+wget https://github.com/PR3SIDENT/enshrouded-server/blob/main/DockerRessources/enshrouded_swarm.yaml
+docker compose --compose-file enshrouded_swarm.yaml EnshroudedDedi
+```
+<br>
+
+Method with compose (standalone):<br>
+```bash
+wget https://github.com/PR3SIDENT/enshrouded-server/blob/main/DockerRessources/enshrouded_swarm.yaml
+docker compose --compose-file enshrouded_swarm.yaml EnshroudedDedi
+```
 # Quick Description
 
 Here you will find some files<br>

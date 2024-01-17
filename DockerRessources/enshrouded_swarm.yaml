@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   enshrouded:
-    image: 'enshrouded:0.1'
+    image: 'chevalierpinard/enshrouded:0.1'
     deploy:
       restart_policy:
         condition: any
