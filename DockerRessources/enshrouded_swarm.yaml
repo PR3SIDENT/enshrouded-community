@@ -10,8 +10,8 @@ services:
         max_attempts: 3
         window: 120s
     ports:
-      - "15636:15636"
-      - "15637:15667"
+      - "15636:15636/udp"
+      - "15637:15667/udp"
       - "tbd:tbd"
     volumes:
       - "serverdata:/home/steam/enshrouded"

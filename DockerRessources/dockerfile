@@ -59,7 +59,7 @@ RUN chmod +x /home/steam/enshrouded/startupscript.sh
 VOLUME /home/steam/enshrouded
 
 #Expose ports
-EXPOSE 15636/tcp 15637/tcp
+EXPOSE 15636/udp 15637/udp
 
 #Use entrypoint or CMD
 ENTRYPOINT [ "/home/steam/enshrouded/startupscript.sh" ]
