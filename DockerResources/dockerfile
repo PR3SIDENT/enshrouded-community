@@ -49,7 +49,7 @@ apt install -y --allow-unauthenticated screen xvfb
 #Make symlink & install enshrouded dedicated server
 WORKDIR /home/steam
 RUN su steam -c "ln -s /usr/games/steamcmd /home/steam/steamcmd && \
-./steamcmd +@sSteamCmdForcePlatformType ${STEAMCMD_INSTALL_PLATFORM} +force_install_dir /home/steam/enshrouded +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit"
+./steamcmd +quit"
 
 #Add the startupscript and set execution mode
 ADD startupscript.sh /home/steam/startupscript.sh
