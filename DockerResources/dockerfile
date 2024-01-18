@@ -1,0 +1,66 @@
+#Starting FROM
+FROM ubuntu:22.04
+LABEL maintainer="ChevalierPinard"
+
+#Taking install ARGs
+
+#Define SteamCMD ENV
+ENV STEAMCMD_INSTALL_PLATFORM="windows"
+ENV STEAMCMD_PUBLIC_ID="anonymous"
+ENV STEAM_APP_ID="2278520"
+
+#Define Wine ENV
+#ENV WINETRICKS_RUN="vcrun2022"
+ENV WINEDEBUG="-all"
+ENV WINEARCH="win64"
+
+#Define specifics env variables (tbd)
+ENV ENSHROUDED_SERVER_NAME="myenshroudedserver"
+ENV ENSHROUDED_SERVER_PASSWORD=""
+ENV ENSHROUDED_SERVER_SAVEDIRECTORY="./savegame"
+ENV ENSHROUDED_SERVER_LOGDIRECTORY="./logs"
+ENV ENSHROUDED_SERVER_MAXPLAYERS="16"
+
+#Install base packages
+RUN set -x && \
+apt update && \
+apt install -y vim wget software-properties-common
+
+#Install steamCMD with prerequisites
+ARG DEBIAN_FRONTEND=noninteractive
+RUN add-apt-repository -y multiverse && \
+dpkg --add-architecture i386 && \
+apt update && \
+echo steam steam/question select "I AGREE" | debconf-set-selections && echo steam steam/license note '' | debconf-set-selections && \
+apt install -y lib32z1 lib32gcc-s1 lib32stdc++6 steamcmd && \
+groupadd steam && useradd -m steam -g steam && \
+chown -R steam:steam /usr/games && \
+su steam -c "mkdir -p /home/steam/enshrouded"
+
+#Install wine and prerequisites
+RUN dpkg --add-architecture amd64 && \
+mkdir -pm755 /etc/apt/keyrings && \
+wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key && \
+wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources && \
+apt update && \
+apt install --install-recommends winehq-stable && \
+apt install -y --allow-unauthenticated screen xvfb
+
+#Make symlink & install enshrouded dedicated server
+WORKDIR /home/steam
+RUN su steam -c "ln -s /usr/games/steamcmd /home/steam/steamcmd && \
+./steamcmd +@sSteamCmdForcePlatformType ${STEAMCMD_INSTALL_PLATFORM} +force_install_dir /home/steam/enshrouded +login ${STEAMCMD_PUBLIC_ID} +app_update ${STEAM_APP_ID} +quit"
+
+#Add the startupscript and set execution mode
+ADD startupscript.sh /home/steam/enshrouded/startupscript.sh
+RUN chmod +x /home/steam/enshrouded/startupscript.sh
+
+#Map volume
+VOLUME /home/steam/enshrouded/savegame /home/steam/enshrouded/savegame
+
+#Expose ports
+EXPOSE 15636/udp 15637/udp
+
+#Use entrypoint or CMD
+ENTRYPOINT [ "/home/steam/enshrouded/startupscript.sh" ]
+#CMD [ "executable" ]
