@@ -9,8 +9,10 @@ NOTE : you can use ONE of the file. As the standalone is made for simple docker 
 <br>
 
 Also you need to redirect the following ports :<br>
-| game port | console port |
-|   15636   |    15637     |
+
+| Game port | Console port |
+|-----------|--------------|
+|   15636   |     15637    |
  
 # 2. How to Deploy
 
