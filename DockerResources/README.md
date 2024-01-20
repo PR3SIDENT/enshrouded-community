@@ -10,7 +10,7 @@ NOTE : you can use ONE of the file. As the standalone is made for simple docker 
 
 Also you need to redirect the following ports :<br>
 
-| Game port | Console port |
+| Game port |  Query port  |
 |-----------|--------------|
 |   15636   |     15637    |
  
