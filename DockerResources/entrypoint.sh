@@ -54,10 +54,6 @@ EOF
 
 echo "Enshrouded_server.json created."
 
-#Adjust Server properties (via sed, cat or other, : guess we will see ;D)
-
-#Do other init stuff
-
 echo " ----- Init process finished -----"
 
 else

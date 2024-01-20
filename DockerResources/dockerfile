@@ -1,46 +1,56 @@
 #Starting FROM
 FROM ubuntu:22.04
-LABEL maintainer "ChevalierPinard"
 
 #Define General vars
 ENV DEBIAN_FRONTEND "noninteractive"
 
 #Define Wine ENV
-#ENV WINETRICKS_RUN="vcrun2022"
 ENV WINEPREFIX "/home/steam/.enshrouded_prefix"
 ENV WINEARCH "win64"
 
 #Define specifics env variables
-ENV ENSHROUDED_SERVER_NAME="myenshroudedserver"
-ENV ENSHROUDED_SERVER_PASSWORD=""
-ENV ENSHROUDED_SERVER_SAVEDIRECTORY="./savegame"
-ENV ENSHROUDED_SERVER_LOGDIRECTORY="./logs"
-ENV ENSHROUDED_SERVER_MAXPLAYERS="16"
+ENV ENSHROUDED_SERVER_NAME "myenshroudedserver"
+ENV ENSHROUDED_SERVER_PASSWORD ""
+ENV ENSHROUDED_SERVER_MAXPLAYERS "16"
 
 #Install base packages
-RUN set -x && \
-apt update && \
-apt install -y vim wget software-properties-common
+RUN set -x \
+&& apt update \
+&& apt install -y \
+vim \
+wget \
+software-properties-common
 
 #Install steamCMD with prerequisites
-RUN add-apt-repository -y multiverse && \
-dpkg --add-architecture i386 && \
-apt update && \
-echo steam steam/question select "I AGREE" | debconf-set-selections && echo steam steam/license note '' | debconf-set-selections && \
-apt install -y lib32z1 lib32gcc-s1 lib32stdc++6 steamcmd && \
-groupadd steam && useradd -m steam -g steam && \
-chown -R steam:steam /usr/games
+RUN add-apt-repository -y multiverse \
+&& dpkg --add-architecture i386 \
+&& apt update \
+&& echo steam steam/question select "I AGREE" | debconf-set-selections && echo steam steam/license note '' | debconf-set-selections \
+&& apt install -y \
+lib32z1 \
+lib32gcc-s1 \
+lib32stdc++6 \
+steamcmd \
+&& groupadd steam \
+&& useradd -m steam -g steam \
+&& chown -R steam:steam /usr/games
 
 #Install wine and prerequisites
-RUN dpkg --add-architecture amd64 && \
-mkdir -pm755 /etc/apt/keyrings && \
-wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key && \
-wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources && \
-apt update && \
-apt install -y --install-recommends winehq-stable && \
-apt install -y --allow-unauthenticated jq cabextract winbind screen xvfb && \
-wget -O /usr/local/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && \
-chmod +x /usr/local/bin/winetricks
+RUN dpkg --add-architecture amd64 \
+&& mkdir -pm755 /etc/apt/keyrings \
+&& wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
+&& wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources \
+&& apt update \
+&& apt install -y --install-recommends \
+winehq-stable \
+&& apt install -y --allow-unauthenticated \
+jq \
+cabextract \
+winbind \
+screen \
+xvfb \
+&& wget -O /usr/local/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks \
+&& chmod +x /usr/local/bin/winetricks
 
 #Add the startupscript and set execution mode
 ADD entrypoint.sh /home/steam/entrypoint.sh
@@ -49,9 +59,9 @@ RUN chmod +x /home/steam/entrypoint.sh
 #Make symlink & update steamcmd
 WORKDIR /home/steam
 USER steam
-RUN mkdir -p /home/steam/enshrouded && \
-ln -s /usr/games/steamcmd /home/steam/steamcmd && \
-./steamcmd +quit
+RUN mkdir -p /home/steam/enshrouded \
+&& ln -s /usr/games/steamcmd /home/steam/steamcmd \
+&& ./steamcmd +quit
 
 #Map volume
 VOLUME /home/steam/enshrouded
@@ -61,4 +71,3 @@ EXPOSE 15636 15637
 
 #Use entrypoint or CMD
 ENTRYPOINT [ "/home/steam/entrypoint.sh" ]
-#CMD [ "executable" ]
