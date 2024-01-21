@@ -5,27 +5,6 @@ if [ ! -e /home/steam/enshrouded/enshrouded_server.json ]; then
 
 echo " ----- Begining Init process -----"
 
-#Create wine context file.
-echo "Creating whine context file."
-
-touch /home/steam/winetricks.sh
-cat << EOF >> /home/steam/winetricks.sh
-#!/bin/bash
-export DISPLAY=:1.0
-Xvfb :1 -screen 0 1024x768x16 &
-env WINEDLLOVERRIDES="mscoree=d" wineboot --init /nogui
-winetricks corefonts
-winetricks sound=disabled
-winetricks -q --force vcrun2022
-wine winecfg -v win10
-rm -rf /home/steam/.cache
-EOF
-
-echo "Wine whine context file created."
-
-#Apply wine environment.
-su steam -c '/home/steam/winetricks.sh'
-
 #Create server properties file from the template or given model.
 echo "Creating server properties file."
 
@@ -66,9 +45,7 @@ fi
 su steam -c "./steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/enshrouded +login anonymous +app_update 2278520 +quit"
 echo "server updated."
 
-# Wine talks too much and it's annoying
-export WINEDEBUG=-all
-
 #Launch server with wine
 su steam -c "xvfb-run --auto-servernum wine64 /home/steam/enshrouded/enshrouded_server.exe"
 echo "Server Launched. Enjoy ;)"
+/bin/bash

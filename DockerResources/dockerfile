@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND "noninteractive"
 #Define Wine ENV
 ENV WINEPREFIX "/home/steam/.enshrouded_prefix"
 ENV WINEARCH "win64"
+ENV WINEDEBUG "-all"
 
 #Define specifics env variables
 ENV ENSHROUDED_SERVER_NAME "myenshroudedserver"
@@ -17,9 +18,9 @@ ENV ENSHROUDED_SERVER_MAXPLAYERS "16"
 RUN set -x \
 && apt update \
 && apt install -y \
-vim \
-wget \
-software-properties-common
+    vim \
+    wget \
+    software-properties-common
 
 #Install steamCMD with prerequisites
 RUN add-apt-repository -y multiverse \
@@ -27,41 +28,62 @@ RUN add-apt-repository -y multiverse \
 && apt update \
 && echo steam steam/question select "I AGREE" | debconf-set-selections && echo steam steam/license note '' | debconf-set-selections \
 && apt install -y \
-lib32z1 \
-lib32gcc-s1 \
-lib32stdc++6 \
-steamcmd \
+    lib32z1 \
+    lib32gcc-s1 \
+    lib32stdc++6 \
+    steamcmd \
 && groupadd steam \
 && useradd -m steam -g steam \
-&& chown -R steam:steam /usr/games
+&& chown -R steam:steam /usr/games \
+&& ln -s /usr/games/steamcmd /home/steam/steamcmd
 
-#Install wine and prerequisites
+#Install wine, winetricks and prerequisites
 RUN dpkg --add-architecture amd64 \
 && mkdir -pm755 /etc/apt/keyrings \
 && wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
 && wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources \
 && apt update \
 && apt install -y --install-recommends \
-winehq-stable \
+    winehq-stable \
 && apt install -y --allow-unauthenticated \
-jq \
-cabextract \
-winbind \
-screen \
-xvfb \
+    cabextract \
+    winbind \
+    screen \
+    xvfb \
 && wget -O /usr/local/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks \
 && chmod +x /usr/local/bin/winetricks
 
+#Create the winetrick script
+COPY <<EOF /home/steam/winetricks.sh
+#!/bin/bash
+export DISPLAY=:1.0
+Xvfb :1 -screen 0 1024x768x16 &
+env WINEDLLOVERRIDES="mscoree=d" wineboot --init /nogui
+winetricks corefonts
+winetricks sound=disabled
+winetricks -q --force vcrun2022
+wine winecfg -v win10
+rm -rf /home/steam/.cache
+EOF
+
+#Prepare for user environment & server build
+RUN chmod +x /home/steam/winetricks.sh \
+&& mkdir /home/steam/.enshrouded_prefix \
+&& mkdir /home/steam/enshrouded \
+&& mkdir /home/steam/enshrouded/savegame \
+&& mkdir /home/steam/enshrouded/logs \
+&& chown -R steam:steam /home/steam
+
 #Add the startupscript and set execution mode
-ADD entrypoint.sh /home/steam/entrypoint.sh
+ADD ./entrypoint.sh /home/steam/entrypoint.sh
 RUN chmod +x /home/steam/entrypoint.sh
 
-#Make symlink & update steamcmd
-WORKDIR /home/steam
+#build environment
 USER steam
-RUN mkdir -p /home/steam/enshrouded \
-&& ln -s /usr/games/steamcmd /home/steam/steamcmd \
-&& ./steamcmd +quit
+RUN /home/steam/steamcmd +quit \
+&& /home/steam/winetricks.sh
+
+WORKDIR /home/steam
 
 #Map volume
 VOLUME /home/steam/enshrouded

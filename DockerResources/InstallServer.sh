@@ -101,6 +101,8 @@ chmod +x /home/steam/winetricks.sh
 #Create Wineprefix directory
 mkdir /home/steam/.enshrouded_prefix
 
+su steam -c "/home/steam/winetricks.sh"
+
 ########################
 # Game Server  section #
 ########################
