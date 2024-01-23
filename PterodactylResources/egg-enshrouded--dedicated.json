@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-01-15T23:57:42-05:00",
+    "exported_at": "2024-01-23T14:18:32-05:00",
     "name": "Enshrouded-Dedicated",
     "author": "vapokrocks@gmail.com",
     "description": "Enshrouded is a survival game currently in beta",
@@ -12,9 +12,7 @@
         "steam_disk_space"
     ],
     "docker_images": {
-        "Wine Latest": "ghcr.io\/parkervcp\/yolks:wine_latest",
-        "Wine Staging": "ghcr.io\/parkervcp\/yolks:wine_staging",
-        "Wine Dev": "ghcr.io\/parkervcp\/yolks:wine_devel"
+        "Wine Latest": "ghcr.io\/parkervcp\/yolks:wine_latest"
     },
     "file_denylist": [],
     "startup": "wine64 .\/enshrouded_server.exe",
@@ -56,7 +54,7 @@
             "name": "Server Name",
             "description": "",
             "env_variable": "SERVER_NAME",
-            "default_value": "EnshroudedEgg",
+            "default_value": "Dedicated Enshrouded Pterodactyl Server",
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|max:32",
