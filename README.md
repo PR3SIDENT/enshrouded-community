@@ -31,3 +31,7 @@ The Server is running when you see ```HostOnline (Up!)``` message.
 # Windows Applications
 - Application 1
 - Applicaton 2
+
+# Linux - InstallServer.sh
+> The script present here is an automated script to install the server,components and create a service so it can be managed more easier.
+Make it executable with ```bash chmod +x InstallServer.sh``` and run it.

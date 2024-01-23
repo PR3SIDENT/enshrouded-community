@@ -7,6 +7,9 @@
 #Switch to non-interactive mode (system will not ask for any confirmations)
 export DEBIAN_FRONTEND "noninteractive"
 
+#enable 'debug mode'. this will print every command as output, so you can follow the process ;)
+set +x
+
 #Update package list from repo
 apt update
 
