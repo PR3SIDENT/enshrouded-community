@@ -17,7 +17,7 @@ The Server is running when you see ```HostOnline (Up!)``` message.
 
 # Docker
 > Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. The service has both free and premium tiers. The software that hosts the containers is called Docker Engine
-- [DrSh4d0w's Container](https://github.com/PR3SIDENT/enshrouded-server/tree/main/DockerResources)
+- [DrSh4d0w's Container](https://github.com/PR3SIDENT/enshrouded-server/blob/main/DockerResources)
 - [Sknnr's Container](https://github.com/jsknnr/enshrouded-server)
 
 # Pterodactyl
