@@ -16,13 +16,19 @@ Dedicated Server Running Verification
 The Server is running when you see ```HostOnline (Up!)``` message. 
 
 # Docker
+> Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. The service has both free and premium tiers. The software that hosts the containers is called Docker Engine
 - [DrSh4d0w's Container](https://github.com/PR3SIDENT/enshrouded-server/tree/main/DockerResources)
 - [Sknnr's Container](https://github.com/jsknnr/enshrouded-server)
 
 # Pterodactyl
+> Pterodactyl® is a free, open-source game server management panel built with PHP, React, and Go. Designed with security in mind, Pterodactyl runs all game servers in isolated Docker containers while exposing a beautiful and intuitive UI to end users.
 - Egg One
 - Egg Two
 
+# WindowsGSM
+> WindowsGSM is a powerful tool to manage game servers. Equipped with a GUI for server admins to install, import, start, stop, restart, update, and automate multiple servers with a push of a button.
+- [WindowsGSM.Enshrouded](https://github.com/ohmcodes/WindowsGSM.Enshrouded)
+
 # Windows Applications
 - Application 1
-- Application 2
+- Applicaton 2
