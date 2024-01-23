@@ -29,5 +29,5 @@ The Server is running when you see ```HostOnline (Up!)``` message.
 - [WindowsGSM.Enshrouded](https://github.com/ohmcodes/WindowsGSM.Enshrouded)
 
 # Windows Applications
-- [Spaik's Server Manager](https://github.com/ISpaikI/Enshrouded-Server-Manager)https://github.com/ISpaikI/Enshrouded-Server-Manager
+- [Spaik's Server Manager](https://github.com/ISpaikI/Enshrouded-Server-Manager)
 - Applicaton 2
