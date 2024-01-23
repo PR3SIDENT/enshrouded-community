@@ -14,8 +14,8 @@ Dedicated Server Running Verification
 The Server is running when you see ```HostOnline (Up!)``` message. 
 
 # Docker
-- Link 1
-- Link 2
+- DrSh4d0w's container: https://github.com/PR3SIDENT/enshrouded-server/tree/main/DockerResources
+- sknnr's container: https://github.com/jsknnr/enshrouded-server
 
 # Pterodactyl
 - Egg One
