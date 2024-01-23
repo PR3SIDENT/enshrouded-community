@@ -5,8 +5,30 @@ if [ ! -e /home/steam/enshrouded/enshrouded_server.json ]; then
 
 echo " ----- Begining Init process -----"
 
-#Create server properties file from the template or given model
+#Create wine context file.
+echo "Creating whine context file."
+
+touch /home/steam/winetricks.sh
+cat << EOF >> /home/steam/winetricks.sh
+#!/bin/bash
+export DISPLAY=:1.0
+Xvfb :1 -screen 0 1024x768x16 &
+env WINEDLLOVERRIDES="mscoree=d" wineboot --init /nogui
+winetricks corefonts
+winetricks sound=disabled
+winetricks -q --force vcrun2022
+wine winecfg -v win10
+rm -rf /home/steam/.cache
+EOF
+
+echo "Wine whine context file created."
+
+#Apply wine environment.
+su steam -c '/home/steam/winetricks.sh'
+
+#Create server properties file from the template or given model.
 echo "Creating server properties file."
+
 touch /home/steam/enshrouded/enshrouded_server.json
 cat << EOF >> /home/steam/enshrouded/enshrouded_server.json
 {
@@ -15,9 +37,9 @@ cat << EOF >> /home/steam/enshrouded/enshrouded_server.json
 
                 "password": "$(echo $ENSHROUDED_SERVER_PASSWORD)",
 
-                "saveDirectory": "$(echo $ENSHROUDED_SERVER_SAVEDIRECTORY)",
+                "saveDirectory": "./savegame",
 
-                "logDirectory": "$(echo $ENSHROUDED_SERVER_LOGDIRECTORY)",
+                "logDirectory": "./logs",
 
                 "ip": "0.0.0.0",
 
@@ -29,7 +51,8 @@ cat << EOF >> /home/steam/enshrouded/enshrouded_server.json
 
 }
 EOF
-echo "enshrouded_server.json created."
+
+echo "Enshrouded_server.json created."
 
 #Adjust Server properties (via sed, cat or other, : guess we will see ;D)
 
@@ -44,8 +67,11 @@ echo " ----- Init process already performed -----"
 fi
 
 #Upgrade server
-su steam -c "./steamcmd +@sSteamCmdForcePlatformType $STEAMCMD_INSTALL_PLATFORM +force_install_dir /home/steam/enshrouded +login $STEAMCMD_PUBLIC_ID +app_update $STEAM_APP_ID +quit"
-echo "server updated"
+su steam -c "./steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/enshrouded +login anonymous +app_update 2278520 +quit"
+echo "server updated."
+
+# Wine talks too much and it's annoying
+export WINEDEBUG=-all
 
 #Launch server with wine
 su steam -c "xvfb-run --auto-servernum wine64 /home/steam/enshrouded/enshrouded_server.exe"

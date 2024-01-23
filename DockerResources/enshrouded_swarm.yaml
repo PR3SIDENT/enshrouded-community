@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   enshrouded:
-    image: 'chevalierpinard/enshrouded:0.1'
+    image: 'enshrouded:0.1'
     deploy:
       restart_policy:
         condition: any
@@ -10,15 +10,14 @@ services:
         max_attempts: 3
         window: 120s
     ports:
-      - "15636:15636/udp"
-      - "15637:15667/udp"
-      - "tbd:tbd"
+      - "15636:15636"
+      - "15637:15667"
     volumes:
-      - "enshrouded_data:/home/steam/enshrouded/savegame"
-      - "enshrouded_logs:/home/steam/enshrouded/logs"
+      - "enshrouded_data:/home/steam/enshrouded"
+
     networks:
       - "backendnetwork"
-    Environment:
+    environment:
       - "ENSHROUDED_SERVER_NAME=myenshroudedserver"
       - "ENSHROUDED_SERVER_PASSWORD=<insertpasswordhere>"
       - "ENSHROUDED_SERVER_SAVEDIRECTORY=./savegame"
@@ -27,7 +26,6 @@ services:
 
 volumes:
   enshrouded_data:
-  enshrouded_logs:
 
 networks:
   backendnetwork:
