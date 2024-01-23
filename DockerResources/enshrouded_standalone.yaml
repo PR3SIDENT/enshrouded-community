@@ -1,18 +1,19 @@
 version: '3.9'
 
-enshrouded:
-  image: 'enshrouded:0.1'
-  ports:
-    - "15636:15636"
-    - "15637:15667"
-  volumes:
-    - "enshrouded_data:/home/steam/enshrouded"
-  networks:
-    - "backendnetwork"
-  environment:
-    - "ENSHROUDED_SERVER_NAME=myenshroudedserver"
-    - "ENSHROUDED_SERVER_PASSWORD=<insertpasswordhere>"
-    - "ENSHROUDED_SERVER_MAXPLAYERS=16"
+services:
+  enshrouded:
+    image: 'enshrouded:0.1'
+    ports:
+      - "15636:15636"
+      - "15637:15667"
+    volumes:
+      - "enshrouded_data:/home/steam/enshrouded"
+    networks:
+      - "backendnetwork"
+    environment:
+      - "ENSHROUDED_SERVER_NAME=myenshroudedserver"
+      - "ENSHROUDED_SERVER_PASSWORD=<insertpasswordhere>"
+      - "ENSHROUDED_SERVER_MAXPLAYERS=16"
 
 volumes:
   enshrouded_data:
