@@ -23,7 +23,6 @@ The Server is running when you see ```HostOnline (Up!)``` message.
 # Pterodactyl
 > Pterodactyl® is a free, open-source game server management panel built with PHP, React, and Go. Designed with security in mind, Pterodactyl runs all game servers in isolated Docker containers while exposing a beautiful and intuitive UI to end users.
 - [Vapok's Egg](https://github.com/PR3SIDENT/enshrouded-server/tree/main/PterodactylResources)
-- Egg Two
 
 # WindowsGSM
 > WindowsGSM is a powerful tool to manage game servers. Equipped with a GUI for server admins to install, import, start, stop, restart, update, and automate multiple servers with a push of a button.
