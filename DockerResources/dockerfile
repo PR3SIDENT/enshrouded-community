@@ -54,17 +54,16 @@ RUN dpkg --add-architecture amd64 \
 && chmod +x /usr/local/bin/winetricks
 
 #Create the winetrick script
-COPY <<EOF /home/steam/winetricks.sh
-#!/bin/bash
-export DISPLAY=:1.0
-Xvfb :1 -screen 0 1024x768x16 &
-env WINEDLLOVERRIDES="mscoree=d" wineboot --init /nogui
-winetricks corefonts
-winetricks sound=disabled
-winetricks -q --force vcrun2022
-wine winecfg -v win10
-rm -rf /home/steam/.cache
-EOF
+RUN echo '#!/bin/bash\n\
+export DISPLAY=:1.0\n\
+Xvfb :1 -screen 0 1024x768x16 &\n\
+env WINEDLLOVERRIDES="mscoree=d" wineboot --init /nogui\n\
+winetricks corefonts\n\
+winetricks sound=disabled\n\
+winetricks -q --force vcrun2022\n\
+wine winecfg -v win10\n\
+rm -rf /home/steam/.cache\n\
+' > /home/winetricks.sh
 
 #Prepare for user environment & server build
 RUN chmod +x /home/steam/winetricks.sh \
