@@ -1,4 +1,4 @@
-# Community Resources - Enshrouded Server
+# Enshrouded Community Hosting Resources
 This repo serves as a guide for anyone looking to host their own Enshrouded server. It links to other repos, other guides, and in some cases even contains code to do so. 
 
 # Official Server Guide (By Keen Games)
