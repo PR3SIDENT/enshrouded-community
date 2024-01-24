@@ -152,9 +152,9 @@ touch /home/steam/enshrouded/StartEnshroudedServer.sh
 cat << EOF >> /home/steam/enshrouded/StartEnshroudedServer.sh
 #!/bin/sh
 export WINEARCH=win64
-export WINEPREFIX=/home/steam/.enshrouded_prefix
-export WINEDEBUG=-all
-xvfb-run --auto-servernum wine64 /home/steam/enshrouded/enshrouded_server.exe
+#export WINEPREFIX=/home/steam/.enshrouded_prefix
+#export WINEDEBUG=-all
+wine64 /home/steam/enshrouded/enshrouded_server.exe
 EOF
 
 #Make it exectutable
@@ -174,16 +174,19 @@ sudo su steam -c "/home/steam/steamcmd +@sSteamCmdForcePlatformType windows +for
 touch /etc/systemd/system/enshrouded.service
 
 cat << EOF >> /etc/systemd/system/enshrouded.service
-
 [Unit]
-Description=Enshrouded server - By Chevalier Pinard
+Description=Enshrouded Server
 After=syslog.target network.target
+
 [Service]
+ExecStartPre=/usr/games/steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/enshrouded +login anonymous +app_update 2278520 +quit
 ExecStart=/home/steam/enshrouded/StartEnshroudedServer.sh
 User=steam
+Group=steam
 Type=simple
 Restart=on-failure
 RestartSec=50s
+
 [Install]
 WantedBy=multi-user.target
 EOF
