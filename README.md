@@ -1,5 +1,7 @@
 # Enshrouded Community Hosting Resources
-This repo serves as a guide for anyone looking to host their own Enshrouded server. It links to other repos, other guides, and in some cases even contains code to do so. If you'd like to rent a server from a provider, [we are also maintaining a list of those here.](https://github.com/PR3SIDENT/enshrouded-server/blob/main/Hosting%20Providers/hosting-providers.md)
+This repository serves as a guide for anyone looking to host their own Enshrouded server. It may link to other projects, repos, guides, etc.
+
+If you'd like to rent a server from a provider, [we are also maintaining a list of those here.](https://github.com/PR3SIDENT/enshrouded-server/blob/main/Hosting%20Providers/hosting-providers.md)
 
 # Official Server Guide (By Keen Games)
 This contains server specs, FAQ, installation instructions, and beyond...
