@@ -9,6 +9,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [Ascend Servers](https://www.ascendservers.com)
 - [BisectHosting](https://www.bisecthosting.com)
 - [Citadel Servers](https://www.citadelservers.com)
+- [EnshroudedHosting](https://enshroudedhosting.com)
 - [Gaming Deluxe](https://www.gamingdeluxe.co.uk)
 - [GPORTAL](https://www.g-portal.com)
 - [GTXGaming](https://www.gtxgaming.co.uk)
