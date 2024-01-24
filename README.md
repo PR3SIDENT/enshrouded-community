@@ -25,14 +25,19 @@ The Server is running when you see ```HostOnline (Up!)``` message.
 # Pterodactyl
 > Pterodactyl® is a free, open-source game server management panel built with PHP, React, and Go. Designed with security in mind, Pterodactyl runs all game servers in isolated Docker containers while exposing a beautiful and intuitive UI to end users.
 - [Vapok's Egg](https://github.com/PR3SIDENT/enshrouded-server/tree/main/PterodactylResources)
+- [QuintenQVD0's Egg](https://github.com/parkervcp/eggs/pull/2681)
 
 # WindowsGSM
 > WindowsGSM is a powerful tool to manage game servers. Equipped with a GUI for server admins to install, import, start, stop, restart, update, and automate multiple servers with a push of a button.
 - [WindowsGSM.Enshrouded](https://github.com/ohmcodes/WindowsGSM.Enshrouded)
 
+# AMP
+> AMP (Application Management Panel) is a simple to use, self-hosted web control panel for game servers that runs on both Windows and Linux systems with a focus on ease of use through its intuitive user interface and simple setup process.
+- [Greelan's Plugin](https://github.com/CubeCoders/AMPTemplates/pull/606)
+  
 # Windows Applications
 - [Spaik's Server Manager](https://github.com/ISpaikI/Enshrouded-Server-Manager)
-- Applicaton 2
+- TBD (In-Development)
 
 # Linux - InstallServer.sh
 > The script present here is an automated script to install the server,components and create a service so it can be managed more easier.
