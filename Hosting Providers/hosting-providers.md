@@ -5,7 +5,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 
 > ❗ This list is maintained by members of the community and is in no way shape or form a reflection of Keen Games, their official partners or affiliates. 
 
-- [VeryGames](https://verygames.net)
+- [VeryGames](https://www.verygames.net/en/shop/enshrouded-server-host_68)
 - [ApexHosting](https://apexminecrafthosting.com/games/enshrouded-server-hosting/)
 - [Ascend Servers](https://www.ascendservers.com)
 - [BisectHosting](https://www.bisecthosting.com)
