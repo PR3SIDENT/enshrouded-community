@@ -22,5 +22,5 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [SurvivalServers](https://www.survivalservers.com)
 - [Southnode Servers](https://southnode.net/game-servers/enshrouded)
 - [Swift Byte](https://swift-byte.de)
-- [ZAP-Hosting](https://zap-hosting.com).
+- [ZAP-Hosting](https://zap-hosting.com)
 
