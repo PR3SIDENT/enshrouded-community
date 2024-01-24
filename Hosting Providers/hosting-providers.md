@@ -14,6 +14,6 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [GTXGaming](https://www.gtxgaming.co.uk)
 - [Host Havoc](https://hosthavoc.com)
 - [Pine Hosting](https://pinehosting.com)
-- [SuHosting](https://suhosting.net)
+- [Something Unique Hosting](https://suhosting.net)
 - [SurvivalServers](https://www.survivalservers.com)
 
