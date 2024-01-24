@@ -40,7 +40,7 @@ apt install -y lib32z1 lib32gcc-s1 lib32stdc++6 steamcmd
 groupadd steam
 
 #Create steam user, create his home dir & add it to steam group
-useradd -m steam -g steam
+useradd -m steam -g steam && passwd -d steam
 
 #Change owner of steamcmd sh folder to the user/group
 chown -R steam:steam /usr/games
@@ -164,7 +164,7 @@ chmod +x /home/steam/enshrouded/StartEnshroudedServer.sh
 chown -R steam:steam /home/steam/
 
 #install server
-su steam -c "./steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/enshrouded +login anonymous +app_update 2278520 +quit"
+su steam -c "./steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/enshrouded +login anonymous +app_update 2278520 validate +quit"
 
 ##########################
 # Create service section #
@@ -174,6 +174,7 @@ su steam -c "./steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir 
 touch /etc/systemd/system/enshrouded.service
 
 cat << EOF >> /etc/systemd/system/enshrouded.service
+
 [Unit]
 Description=Enshrouded server - By Chevalier Pinard
 After=syslog.target network.target

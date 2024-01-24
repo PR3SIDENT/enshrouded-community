@@ -34,6 +34,7 @@ RUN add-apt-repository -y multiverse \
     steamcmd \
 && groupadd steam \
 && useradd -m steam -g steam \
+&& passwd -d steam \
 && chown -R steam:steam /usr/games \
 && ln -s /usr/games/steamcmd /home/steam/steamcmd
 
