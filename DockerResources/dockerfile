@@ -45,7 +45,7 @@ RUN dpkg --add-architecture amd64 \
 && wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources \
 && apt update \
 && apt install -y --install-recommends \
-    winehq-stable \
+    winehq-staging \
 && apt install -y --allow-unauthenticated \
     cabextract \
     winbind \

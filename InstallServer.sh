@@ -71,7 +71,7 @@ wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists
 apt update
 
 #Install wine
-apt install -y --install-recommends winehq-stable
+apt install -y --install-recommends winehq-staging
 
 #Install the needed packages to make wine work
 apt install -y --allow-unauthenticated cabextract winbind screen xvfb
@@ -164,7 +164,7 @@ chmod +x /home/steam/enshrouded/StartEnshroudedServer.sh
 chown -R steam:steam /home/steam/
 
 #install server
-su steam -c "./steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/enshrouded +login anonymous +app_update 2278520 validate +quit"
+sudo su steam -c "/home/steam/steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir /home/steam/enshrouded +login anonymous +app_update 2278520 +quit"
 
 ##########################
 # Create service section #
