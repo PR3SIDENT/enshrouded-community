@@ -41,7 +41,7 @@ The Server is running when you see ```HostOnline (Up!)``` message.
 
 # AMP
 > AMP (Application Management Panel) is a simple to use, self-hosted web control panel for game servers that runs on both Windows and Linux systems with a focus on ease of use through its intuitive user interface and simple setup process.
-- [Greelan's Plugin](https://github.com/CubeCoders/AMPTemplates/pull/606)
+- The plugin has been merged into the main repo... Users just have to Fetch Latest under Instance Deployment, and Enshrouded will appear in the dropdown when they go to create an instance.
   
 # Windows Applications
 - [Spaik's Server Manager](https://github.com/ISpaikI/Enshrouded-Server-Manager)
