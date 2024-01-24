@@ -49,4 +49,6 @@ The Server is running when you see ```HostOnline (Up!)``` message.
 
 # Linux - InstallServer.sh
 > The script present here is an automated script to install the server,components and create a service so it can be managed more easier.
-Make it executable with ```chmod +x InstallServer.sh``` and run it.
+Make it executable with ```chmod +x InstallServer.sh``` and run it.<br>
+<br>
+Script tested on Ubuntu 22.04 (not sure that will work on older versions and alternatives distros)
