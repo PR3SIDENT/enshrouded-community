@@ -4,8 +4,8 @@ services:
   enshrouded:
     image: 'enshrouded:0.1'
     ports:
-      - "15636:15636"
-      - "15637:15667"
+      - "15636:15636/udp"
+      - "15637:15637/udp"
     volumes:
       - "enshrouded_data:/home/steam/enshrouded"
     networks:
