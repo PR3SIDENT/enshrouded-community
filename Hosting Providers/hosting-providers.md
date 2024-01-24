@@ -10,6 +10,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [BisectHosting](https://www.bisecthosting.com)
 - [Citadel Servers](https://www.citadelservers.com)
 - [Gaming Deluxe](https://www.gamingdeluxe.co.uk)
+- [Game Host Bros](https://www.gamehostbros.com)
 - [GPORTAL](https://www.g-portal.com)
 - [GTXGaming](https://www.gtxgaming.co.uk)
 - [Host Havoc](https://hosthavoc.com)
