@@ -8,6 +8,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [ApexHosting](https://www.apexminecrafthosting.com)
 - [Ascend Servers](https://www.ascendservers.com)
 - [BisectHosting](https://www.bisecthosting.com)
+- [BlueFangSolutions](https://www.bluefangsolutions.com/shop/enshrouded)
 - [Citadel Servers](https://www.citadelservers.com)
 - [EnshroudedHosting](https://enshroudedhosting.com)
 - [Gaming Deluxe](https://www.gamingdeluxe.co.uk)
