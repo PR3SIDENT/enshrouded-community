@@ -20,6 +20,6 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [Pine Hosting](https://pinehosting.com)
 - [Something Unique Hosting](https://suhosting.net)
 - [SurvivalServers](https://www.survivalservers.com)
+- [LogicServers](https://www.logicservers.com/enshrouded)
 - [Southnode Servers](https://southnode.net/game-servers/enshrouded)
 - [Swift Byte](https://swift-byte.de)
-
