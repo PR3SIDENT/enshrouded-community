@@ -39,6 +39,10 @@ The Server is running when you see ```HostOnline (Up!)``` message.
 > WindowsGSM is a powerful tool to manage game servers. Equipped with a GUI for server admins to install, import, start, stop, restart, update, and automate multiple servers with a push of a button.
 - [WindowsGSM.Enshrouded](https://github.com/ohmcodes/WindowsGSM.Enshrouded)
 
+# GameServerApp.com
+> GSA is a hosted (SaaS) auto-pilot for game servers that has automation, monetization, collaboration and admin tools baked in. Supports Enshrouded natively on Windows Docker containers, for optimal performance & security.
+- [How to connect >](https://www.gameserverapp.com/connect/dediconnect)
+
 # AMP
 > AMP (Application Management Panel) is a simple to use, self-hosted web control panel for game servers that runs on both Windows and Linux systems with a focus on ease of use through its intuitive user interface and simple setup process.
 - The plugin has been merged into the main repo... Users just have to Fetch Latest under Instance Deployment, and Enshrouded will appear in the dropdown when they go to create an instance.
