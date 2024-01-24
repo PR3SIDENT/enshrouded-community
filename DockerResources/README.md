@@ -1,32 +1,4 @@
-# Deploy the container
-
-Method with compose  (swarm):<br>
-```bash
-wget https://github.com/PR3SIDENT/enshrouded-server/blob/main/DockerRessources/enshrouded_swarm.yaml
-docker compose --compose-file enshrouded_swarm.yaml EnshroudedDedi
-```
-<br>
-
-Method with compose (standalone):<br>
-```bash
-wget https://github.com/PR3SIDENT/enshrouded-server/blob/main/DockerRessources/enshrouded_standalone.yaml
-docker compose --compose-file enshrouded_swarm.yaml EnshroudedDedi
-```
-<br>
-
-Method with docker run : ToBeDone<br>
-```bash
-docker run -d --name enshroudeddedi --restart=always -p 15636:15636 -p 15637:15667 \
--v enshrouded_data:/home/steam/enshrouded/savegame -v enshrouded_logs:/home/steam/enshrouded/logs \
--e ENSHROUDED_SERVER_NAME=myenshroudedserver \
--e ENSHROUDED_SERVER_PASSWORD=<insertpasswordhere> \
--e ENSHROUDED_SERVER_SAVEDIRECTORY=./savegame \
--e ENSHROUDED_SERVER_LOGDIRECTORY=./logs \
--e ENSHROUDED_SERVER_MAXPLAYERS=16
-```
-<br>
-
-# Quick Description
+# 1. Quick Description
 
 Here you will find some files<br>
     1 - Dockerfile is raw file used to generate docker image<br>
@@ -36,20 +8,37 @@ Here you will find some files<br>
 NOTE : you can use ONE of the file. As the standalone is made for simple docker install and the swarm is used... well, for swarm ;)<br>
 <br>
 
-# Status
+Also you need to redirect the following ports :<br>
 
-For now, all files are under DEV and not usable 'as is'.<br>
-It will be upgraded since release.<br>
+| Game port |  Query port  |
+|-----------|--------------|
+|   15636   |     15637    |
+ 
+# 2. How to Deploy
 
-# How to use
-
-Those are the variable you can custom with their defaults values.<br>
+Method with docker run : <br>
+```bash
+docker run -d --name enshroudeddedi --restart=always -p 15636:15636 -p 15637:15667 \
+-v enshrouded_data:/home/steam/enshrouded/savegame -v enshrouded_logs:/home/steam/enshrouded/logs \
+-e ENSHROUDED_SERVER_NAME=myenshroudedserver \
+-e ENSHROUDED_SERVER_PASSWORD=<insertpasswordhere> \
+-e ENSHROUDED_SERVER_MAXPLAYERS=16
+```
 <br>
-ENSHROUDED_SERVER_NAME="myenshroudedserver"<br>
-ENSHROUDED_SERVER_PASSWORD=""<br>
-ENSHROUDED_SERVER_SAVEDIRECTORY="./savegame"<br>
-ENSHROUDED_SERVER_LOGDIRECTORY="./logs"<br>
-ENSHROUDED_SERVER_MAXPLAYERS="16"<br>
+
+Method with compose  (swarm):<br>
+```bash
+wget https://github.com/PR3SIDENT/enshrouded-server/blob/main/DockerRessources/enshrouded_swarm.yaml
+docker compose --compose-file enshrouded_swarm.yaml EnshroudedDedi
+```
+<br>
+
+TODO Method with compose (standalone):<br>
+```bash
+wget https://github.com/PR3SIDENT/enshrouded-server/blob/main/DockerRessources/enshrouded_standalone.yaml
+docker compose --compose-file enshrouded_swarm.yaml EnshroudedDedi
+```
+<br>
 
 # FAQ
 
