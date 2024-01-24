@@ -22,9 +22,6 @@ This will install the game server. From there, you might need to install VC2022 
 Last but not least Configure the Server Configuration File following the guide.
 
 To start the server, simply run `enshrouded_server.exe`  or if running on Linux `wine64 ./enshrouded_server.exe` There are no command line arguments.
-- The Steam APP ID for the Enshrouded Dedicated Server is: ```2278520```
-- The Public branch will be available for anonymous download and you can use SteamCMD to configure your services.
-- This will be available on Early Access launch for folks to begin to setup.
 
 Dedicated Server Running Verification
 The Server is running when you see ```HostOnline (Up!)``` message. 
