@@ -23,5 +23,6 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [LogicServers](https://www.logicservers.com/enshrouded)
 - [Southnode Servers](https://southnode.net/game-servers/enshrouded)
 - [Swift Byte](https://swift-byte.de)
+- [Swedishhost.com](https://www.swedishhost.com)
 - [ZAP-Hosting](https://zap-hosting.com)
 
