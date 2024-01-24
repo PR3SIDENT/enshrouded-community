@@ -5,7 +5,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 
 > ❗ This list is maintained by members of the community and is in no way shape or form a reflection of Keen Games, their official partners or affiliates. 
 
-- [ApexHosting](https://www.apexminecrafthosting.com)
+- [ApexHosting](https://apexminecrafthosting.com)
 - [Ascend Servers](https://www.ascendservers.com)
 - [BisectHosting](https://www.bisecthosting.com)
 - [BlueFangSolutions](https://www.bluefangsolutions.com/shop/enshrouded)
@@ -16,6 +16,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [GPORTAL](https://www.g-portal.com)
 - [GTXGaming](https://www.gtxgaming.co.uk)
 - [Host Havoc](https://hosthavoc.com)
+- [Nitrado](https://nitrado.net)
 - [Pine Hosting](https://pinehosting.com)
 - [Something Unique Hosting](https://suhosting.net)
 - [SurvivalServers](https://www.survivalservers.com)
