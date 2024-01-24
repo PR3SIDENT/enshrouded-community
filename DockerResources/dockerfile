@@ -64,7 +64,7 @@ winetricks sound=disabled\n\
 winetricks -q --force vcrun2022\n\
 wine winecfg -v win10\n\
 rm -rf /home/steam/.cache\n\
-' > /home/winetricks.sh
+' > /home/steam/winetricks.sh
 
 #Prepare for user environment & server build
 RUN chmod +x /home/steam/winetricks.sh \
