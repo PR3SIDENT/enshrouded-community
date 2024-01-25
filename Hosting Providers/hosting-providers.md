@@ -13,7 +13,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [EnshroudedHosting](https://enshroudedhosting.com)
 - [Gaming Deluxe](https://www.gamingdeluxe.co.uk)
 - [Game Host Bros](https://www.gamehostbros.com)
-- [GamerzHost] (https://www.gamerzhost.de)
+- [GamerzHost](https://www.gamerzhost.de)
 - [GPORTAL](https://www.g-portal.com)
 - [GTXGaming](https://www.gtxgaming.co.uk)
 - [Host Havoc](https://hosthavoc.com)
