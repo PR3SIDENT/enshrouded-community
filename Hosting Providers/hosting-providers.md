@@ -31,4 +31,4 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [VeryGames](https://www.verygames.net/en/shop/enshrouded-server-host_68)
 - [ZAP-Hosting](https://zap-hosting.com)
 - [Axcello-Hosting](game.axcello.net)
-
+- [Skynode](https://www.skynode.pro/enshrouded-hosting)
