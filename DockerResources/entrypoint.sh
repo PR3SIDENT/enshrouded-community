@@ -46,6 +46,6 @@ su steam -c "./steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir 
 echo "server updated."
 
 #Launch server with wine
-su steam -c "xvfb-run --auto-servernum wine64 /home/steam/enshrouded/enshrouded_server.exe"
+su steam -c "wine64 /home/steam/enshrouded/enshrouded_server.exe"
 echo "Server Launched. Enjoy ;)"
 /bin/bash

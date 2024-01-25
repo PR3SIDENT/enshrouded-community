@@ -5,9 +5,7 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND "noninteractive"
 
 #Define Wine ENV
-ENV WINEPREFIX "/home/steam/.enshrouded_prefix"
 ENV WINEARCH "win64"
-ENV WINEDEBUG "-all"
 
 #Define specifics env variables
 ENV ENSHROUDED_SERVER_NAME "myenshroudedserver"
@@ -49,27 +47,10 @@ RUN dpkg --add-architecture amd64 \
 && apt install -y --allow-unauthenticated \
     cabextract \
     winbind \
-    screen \
-    xvfb \
-&& wget -O /usr/local/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks \
-&& chmod +x /usr/local/bin/winetricks
-
-#Create the winetrick script
-RUN echo '#!/bin/bash\n\
-export DISPLAY=:1.0\n\
-Xvfb :1 -screen 0 1024x768x16 &\n\
-env WINEDLLOVERRIDES="mscoree=d" wineboot --init /nogui\n\
-winetricks corefonts\n\
-winetricks sound=disabled\n\
-winetricks -q --force vcrun2022\n\
-wine winecfg -v win10\n\
-rm -rf /home/steam/.cache\n\
-' > /home/steam/winetricks.sh
+    screen
 
 #Prepare for user environment & server build
-RUN chmod +x /home/steam/winetricks.sh \
-&& mkdir /home/steam/.enshrouded_prefix \
-&& mkdir /home/steam/enshrouded \
+RUN mkdir /home/steam/enshrouded \
 && mkdir /home/steam/enshrouded/savegame \
 && mkdir /home/steam/enshrouded/logs \
 && chown -R steam:steam /home/steam
@@ -80,9 +61,7 @@ RUN chmod +x /home/steam/entrypoint.sh
 
 #build environment
 USER steam
-RUN /home/steam/steamcmd +quit \
-&& /home/steam/winetricks.sh
-
+RUN /home/steam/steamcmd +quit
 WORKDIR /home/steam
 
 #Map volume
