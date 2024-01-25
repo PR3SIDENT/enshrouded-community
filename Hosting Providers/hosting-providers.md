@@ -17,6 +17,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [GPORTAL](https://www.g-portal.com)
 - [GTXGaming](https://www.gtxgaming.co.uk)
 - [Host Havoc](https://hosthavoc.com)
+- [Kinetic Hosting](https://www.kinetichosting.net/store/enshrouded)
 - [LOW.MS](https://low.ms/game-servers/enshrouded-server-hosting)
 - [Lilypad](https://lilypad.gg/enshrouded)
 - [Nitrado](https://server.nitrado.net/en-GB/offers/enshrouded)
