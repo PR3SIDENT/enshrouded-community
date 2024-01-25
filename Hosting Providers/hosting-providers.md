@@ -32,3 +32,4 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [ZAP-Hosting](https://zap-hosting.com)
 - [Axcello-Hosting](game.axcello.net)
 - [Skynode](https://www.skynode.pro/enshrouded-hosting)
+- [Imperium-Hosting](https://www.imperiumhosting.com/product-page/enshrouded-pc)
