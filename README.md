@@ -22,7 +22,6 @@ https://enshrouded.zendesk.com/hc/en-us/sections/16050842957085-Multiplayer-and-
 # Pterodactyl
 > Pterodactyl® is a free, open-source game server management panel built with PHP, React, and Go. Designed with security in mind, Pterodactyl runs all game servers in isolated Docker containers while exposing a beautiful and intuitive UI to end users.
 - [Proton Egg](https://github.com/gOOvER/own-pterodactyl-eggs/tree/main/steamcmd/enshrouded) [RECOMMENDED]
-- [Wine64 Egg](https://github.com/parkervcp/eggs/tree/master/game_eggs/steamcmd_servers/enshrouded)
 
 
 # WindowsGSM
