@@ -9,22 +9,8 @@ This contains server specs, FAQ, installation instructions, and beyond...
 https://enshrouded.zendesk.com/hc/en-us/sections/16050842957085-Multiplayer-and-Server-Hosting
 
 # SteamCMD
-The SteamCMD tool is a complex tool that is provided by Steam for the purpose of installing game servers through more scripted methods.  There are both windows and linux versions of the SteamCMD tool, and it is beyond the scope of this FAQ to provide assistance on all of the features of this command.
-
-That said, when executed, it will download all of the game files to the folder specified:
-
-In general, the command works like this:
-
-`steamcmd +force_install_dir <PATH TO INSTALL FOLDER> +login anonymous +app_update 2278520 validate +quit`
-
-This will install the game server. From there, you might need to install VC2022 Redistributable (depending on your environment).
-
-Last but not least Configure the Server Configuration File following the guide.
-
-To start the server, simply run `enshrouded_server.exe`  or if running on Linux `wine64 ./enshrouded_server.exe` There are no command line arguments.
-
-Dedicated Server Running Verification
-The Server is running when you see ```HostOnline (Up!)``` message. 
+- [TroubleChute's SteamCMD Install Guide](https://youtu.be/XG8Hyk1PC70?si=0W_6NXf7M7HALxsn) (Video)
+- [TrobleChute's SteamCMD Install Guide](https://hub.tcno.co/games/enshrouded/dedicated_server/) (Written/Text)
 
 # Docker
 > Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. The service has both free and premium tiers. The software that hosts the containers is called Docker Engine
