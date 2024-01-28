@@ -39,6 +39,7 @@ https://enshrouded.zendesk.com/hc/en-us/sections/16050842957085-Multiplayer-and-
   
 # Windows Applications
 - [Spaik's Server Manager](https://github.com/ISpaikI/Enshrouded-Server-Manager)
+- [Enshrouded Backup Manager](https://github.com/Crazyloon/EnshroudedBackupManager)
 - TBD (In-Development)
 
 # Linux - InstallServer.sh
