@@ -40,7 +40,9 @@ https://enshrouded.zendesk.com/hc/en-us/sections/16050842957085-Multiplayer-and-
 # Windows Applications
 - [Spaik's Server Manager](https://github.com/ISpaikI/Enshrouded-Server-Manager)
 - [Enshrouded Backup Manager](https://github.com/Crazyloon/EnshroudedBackupManager)
-- TBD (In-Development)
+- [SMM-Enshrouded Server Manager](https://github.com/SYSOFTEK/SMM-Enshrouded)
+
+  > SMM-Enshrouded (Server Manager and Monitor for Enshrouded) is a software developed with AutoIt for the graphical interface and Python for monitoring. It provides real-time monitoring of server performance, including CPU, RAM usage, and disk write speed. The software is currently available in French and English.
 
 # Linux - InstallServer.sh
 > The script present here is an automated script to install the server,components and create a service so it can be managed more easier.
