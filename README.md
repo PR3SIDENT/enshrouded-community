@@ -38,7 +38,7 @@ https://enshrouded.zendesk.com/hc/en-us/sections/16050842957085-Multiplayer-and-
 - The plugin has been merged into the main repo... Users just have to Fetch Latest under Instance Deployment, and Enshrouded will appear in the dropdown when they go to create an instance.
   
 # Windows Applications
-- [Spaik's Server Manager](https://github.com/ISpaikI/Enshrouded-Server-Manager)
+- [Spaik's Server Manager](https://github.com/Crazyloon/Enshrouded-Server-Manager)
 - [Enshrouded Backup Manager](https://github.com/Crazyloon/EnshroudedBackupManager)
 - [SMM-Enshrouded Server Manager](https://github.com/SYSOFTEK/SMM-Enshrouded)
 
