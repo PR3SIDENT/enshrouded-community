@@ -28,6 +28,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [Skynode](https://www.skynode.pro/enshrouded-hosting)
 - [Something Unique Hosting](https://suhosting.net)
 - [Southnode Servers](https://southnode.net/game-servers/enshrouded)
+- [Supercraft](https://supercraft.host/enshrouded-server-hosting)
 - [SurvivalServers](https://www.survivalservers.com)
 - [Swedishhost.com](https://www.swedishhost.com)
 - [Swift Byte](https://swift-byte.de)
