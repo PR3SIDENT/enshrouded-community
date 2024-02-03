@@ -32,6 +32,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [SurvivalServers](https://www.survivalservers.com)
 - [Swedishhost.com](https://www.swedishhost.com)
 - [Swift Byte](https://swift-byte.de)
+- [TostHost](https://tosthost.pl/game-hosting/enshrouded)
 - [ValHost](https://valhost.net/?game=enshrouded)
 - [VerticalHost](https://vertical-host.com)
 - [VeryGames](https://www.verygames.net/en/shop/enshrouded-server-host_68)
