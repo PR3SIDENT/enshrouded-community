@@ -18,6 +18,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [GPORTAL](https://www.g-portal.com)
 - [GTXGaming](https://www.gtxgaming.co.uk)
 - [Host Havoc](https://hosthavoc.com)
+- [indifferent broccoli](https://indifferentbroccoli.com/enshrouded-server-hosting)
 - [Imperium-Hosting](https://www.imperiumhosting.com/product-page/enshrouded-pc)
 - [Kinetic Hosting](https://www.kinetichosting.net/store/enshrouded)
 - [LOW.MS](https://low.ms/game-servers/enshrouded-server-hosting)
