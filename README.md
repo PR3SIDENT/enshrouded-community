@@ -3,7 +3,8 @@ This repository serves as a guide for anyone looking to host their own Enshroude
 
 If you'd like to rent a server from a provider, [we are also maintaining a list of those here.](https://github.com/PR3SIDENT/enshrouded-server/blob/main/Hosting%20Providers/hosting-providers.md)
 
-# Official Server Guide (By Keen Games)
+# Official Server Guide & FAQ
+> Provided by Keen Games
 This contains server specs, FAQ, installation instructions, and beyond...
 
 https://enshrouded.zendesk.com/hc/en-us/sections/16050842957085-Multiplayer-and-Server-Hosting
