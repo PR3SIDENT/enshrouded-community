@@ -37,4 +37,5 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [ValHost](https://valhost.net/?game=enshrouded)
 - [VerticalHost](https://vertical-host.com)
 - [VeryGames](https://www.verygames.net/en/shop/enshrouded-server-host_68)
+- [WinterNode](https://winternode.com/games/enshrouded/?mtm_campaign=enshrouded&mtm_source=github)
 - [ZAP-Hosting](https://zap-hosting.com)
