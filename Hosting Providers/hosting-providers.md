@@ -12,6 +12,7 @@ A community-sourced list of Hosting Providers for Enshrouded server rentals.
 - [BisectHosting](https://www.bisecthosting.com)
 - [BlueFangSolutions](https://www.bluefangsolutions.com/shop/enshrouded)
 - [Citadel Servers](https://www.citadelservers.com)
+- [CreeperHost](https://www.creeperhost.net/enshrouded/order)
 - [EnshroudedHosting](https://enshroudedhosting.com)
 - [Game Host Bros](https://www.gamehostbros.com)
 - [GamerzHost](https://www.gamerzhost.de)
